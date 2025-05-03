@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 export default function User() {
   const [user, setUser] = useState(null);
   const { id } = useParams();
-  const homeNav = useNavigate(); // one view to another view without userAction, it is simliar to redirect
-
+  //   const location = useLocation();
+  const homeNav = useNavigate(); // useNavigate is a hook that returns a function that can be used to navigate programmatically.
+  // one view to another view without userAction, it is simliar to redirect
+  // UseNaviagate and match are almost similar, but useNavigate is more flexible and powerful.
+  // useNavigate is a hook that returns a function that can be used to navigate programmatically.
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
       .then((response) => response.json())
